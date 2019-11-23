@@ -8,7 +8,7 @@ library(stm)
 #set working directory
 setwd("/Users/kananovichv/Desktop/anton/")
 
-#load the data
+#load the data#
 lexisall <- read.csv("all.csv",header = TRUE)
 
 #pre-process text 
