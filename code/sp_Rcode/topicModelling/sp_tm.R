@@ -1,9 +1,9 @@
 
 install.packages("stm")
 
-##
+
 library(stm)
-#library(stmprinter)
+
 
 #set working directory
 setwd("/Users/kananovichv/Desktop/anton/")
