@@ -109,4 +109,4 @@ findThoughts(mod10all$runout[[1]], topics = c(9), texts = lexisall$V5)
 findThoughts(mod10all$runout[[1]], topics = c(10), texts = lexisall$V5)
 
 #save proportions of topics in each text in the corpus in a csv file
-write.csv(mod5all$runout[[1]]$theta,"proportionsall5.csv",row.names=FALSE)
+write.csv(mod10all$runout[[1]]$theta,"proportionsall5rowsTrue.csv",row.names=TRUE)
