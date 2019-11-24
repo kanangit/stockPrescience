@@ -26,14 +26,13 @@ def readRecordList(lFilename):
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer,'cp437','backslashreplace')
 
 parser = argparse.ArgumentParser()
-parser.add_argument("userRPath")
+parser.add_argument("iniFilePath")
+parser.add_argument("tmFilePath")
 parser.add_argument("userWPath")
 args = parser.parse_args()	
 
-print('doing the file ',args.userRPath)
+print('reading the file ',args.userRPath)
 rList = readRecordList(args.userRPath)
-for r in rList:
-	r = remCroco(r)
 
 with open(args.userWPath,'w',encoding='utf-8', newline='') as my_csv:
     data_writer = csv.writer(my_csv)
