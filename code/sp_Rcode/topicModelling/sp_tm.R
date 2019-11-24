@@ -1,4 +1,4 @@
-
+install.packages("tm")
 install.packages("stm")
 
 
@@ -9,7 +9,7 @@ library(stm)
 setwd("C:/Users/anton/Documents/work/workIA/coding/git/kanangit/07stockprescience/stockPrescience/data/scrapped/topicModelling/")
 
 #load the data#
-lexisall <- read.csv("all.csv",header = TRUE)
+lexisall <- read.csv("dumpFinancialSoup2018NoCroco.csv",header = TRUE)
 
 #pre-process text 
 processed<-textProcessor(documents=lexisall$V5,metadata=lexisall)
