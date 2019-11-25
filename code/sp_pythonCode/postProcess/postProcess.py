@@ -14,22 +14,37 @@ import numpy as np
 import math
 import time
 import matplotlib
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
+# function sort a 2D array by the column col
+def sort_by_column(inList,col,desc = False):
+    if desc == True:
+        inList.sort(key = lambda inList: inList[col], reverse = desc)
+    elif desc == False:
+        inList.sort(key = lambda inList: inList[col])
+    return inList
+
+def readRecordList(lFilename):
+	recordList = []	
+	with open(lFilename, 'r',newline='', encoding='utf-8') as f:
+		reader = csv.reader(f)
+		iniList = list(reader)
+	for radok in iniList:
+		if len(radok) != 0:
+			recordList.append(radok)
+	return recordList
 
 parser = argparse.ArgumentParser()
 parser.add_argument("iniFilePath")
 parser.add_argument("tmFilePath")
-parser.add_argument("userWPath")
+parser.add_argument("snp500path")
 args = parser.parse_args()	
 
-print('reading the file ',args.userRPath)
-rList = readRecordList(args.userRPath)
+ipath = args.userRPath
+tmFilePath = args.tmFilePath
+snp500FilePath = args.snp500path 
 
-with open(args.userWPath,'w',encoding='utf-8', newline='') as my_csv:
-    data_writer = csv.writer(my_csv)
-    for radok in rList:
-    	if len(radok) != 0:    		
-    		data_writer.writerow(radok)    
+inilist_header = ['atype','date','article text','word_count']
 
-print('Dun. The masterfile is saved in ', args.userWPath)
+full_df = pd.read_csv(ipath, names = inilist_header, index_col=False)
+full_df.head()
