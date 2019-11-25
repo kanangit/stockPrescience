@@ -86,7 +86,7 @@ check_list = get_dateMean(d_list,result_df,'date','V5')
 allDates = [matplotlib.dates.epoch2num(time[0]) for time in time_list ]
 ytemp = [row[1] for row in check_list]
 
-matplotlib.pyplot.plot_date(allDates, ytemp, '-')
+#matplotlib.pyplot.plot_date(allDates, ytemp, '-')
 ##matplotlib.pyplot.show()
 
 snp500_df = pd.read_csv(snp500FilePath)
