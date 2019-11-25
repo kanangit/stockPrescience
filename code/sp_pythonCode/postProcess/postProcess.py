@@ -27,11 +27,12 @@ Algorithm:
 
 """
 #column name of the STM output data we wish to plot:
-stm_colname = 'V8'
+stm_colname = 'V6'
 stm_label = 'Normalized average daily salience of the topic'
 snp500_label = 'Normalized SNP 500 close price'
 # Title and labels of the output graph
-strTitle = 'SNP 500 Price vs. Domestic Partisan Politics in the News in 2018'
+#strTitle = 'SNP 500 Price vs. Domestic Partisan Politics in the News in 2018'
+strTitle = 'SNP 500 Price vs. Foreign Politics in the News in 2018'
 # function sort a 2D array by the column col
 
 
