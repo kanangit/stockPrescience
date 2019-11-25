@@ -27,11 +27,11 @@ Algorithm:
 
 """
 #column name of the STM output data we wish to plot:
-stm_colname = 'V6'
+stm_colname = 'V8'
 stm_label = 'Normalized average daily salience of the topic'
 snp500_label = 'Normalized SNP 500 close price'
 # Title and labels of the output graph
-strTitle = 'SNP 500 Price vs. Salience of Foreign Politics in the News in 2018'
+strTitle = 'SNP 500 Price vs. Domestic Partisan Politics in the News in 2018'
 # function sort a 2D array by the column col
 
 
@@ -138,8 +138,15 @@ l_snp = list(snp500_2018_df['Close'])
 l_snpNorm = [(float(price)-float(min(l_snp))) / float(max(l_snp) - min(l_snp)) for price in l_snp]
 allDatesSnp = [matplotlib.dates.epoch2num(time) for time in l_dates ]
 
+
+xStart =matplotlib.dates.epoch2num(time.mktime(time.strptime('2018-10-20','%Y-%m-%d')))
+xStop = matplotlib.dates.epoch2num(time.mktime(time.strptime('2018-12-31','%Y-%m-%d')))
+
 matplotlib.pyplot.plot_date(allDatesSnp, l_snpNorm, '-', label = snp500_label)
 matplotlib.pyplot.legend(loc= 'upper left')
+axes = matplotlib.pyplot.gca()
+
+axes.set_xlim([xStart, xStop])
 matplotlib.pyplot.show()
 
 for huj in l_dates:
