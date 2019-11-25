@@ -86,5 +86,34 @@ check_list = get_dateMean(d_list,result_df,'date','V5')
 allDates = [matplotlib.dates.epoch2num(time[0]) for time in time_list ]
 ytemp = [row[1] for row in check_list]
 
-matplotlib.pyplot.plot_date(allDates, ytemp, '-')
+#matplotlib.pyplot.plot_date(allDates, ytemp, '-')
+##matplotlib.pyplot.show()
+
+snp500_df = pd.read_csv(snp500FilePath)
+snp500_df.head()
+
+epochStart = time.mktime(time.strptime('2018-01-01','%Y-%m-%d'))
+epochEnd =time.mktime(time.strptime('2018-12-31','%Y-%m-%d')) 
+
+l_snp_dates = list(snp500_df['Date'])
+
+epoch_list = [time.mktime(time.strptime(date,'%Y-%m-%d')) for date in l_snp_dates]
+
+epoch_df = pd.DataFrame(epoch_list, columns = ['Epoch'])
+snp500_df = pd.concat([snp500_df, epoch_df], axis=1, sort=False)
+snp500_2018_df = snp500_df[snp500_df['Epoch'] >= epochStart]
+snp500_2018_df.reset_index(drop = True)
+snp500_2018_df = snp500_df[snp500_df['Epoch'] <= epochEnd]
+snp500_2018_df.reset_index(drop = True)
+
+
+l_dates = list(snp500_2018_df['Epoch'])
+l_snp = list(snp500_2018_df['Close'])
+
+allDatesSnp = [matplotlib.dates.epoch2num(time) for time in l_dates ]
+
+matplotlib.pyplot.plot_date(allDatesSnp, l_snp, '-')
 matplotlib.pyplot.show()
+
+for huj in l_dates:
+	print(time.gmtime(huj))
