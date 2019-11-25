@@ -1,29 +1,21 @@
 # import modules
+
 import sys,io
 from os import listdir
 from os.path import isfile, join
+import pandas as pd
 import codecs
 import re
 import json
 import string
 import csv
 import argparse
+import numpy as np
+import math
+import time
+import matplotlib
+import matplotlib.pyplot as plt
 
-
-#the function reads the paragraph records from the given .csv file
-#and deletes empty rows if there are any
-def readRecordList(lFilename):
-	recordList = []	
-	with open(lFilename, 'r',newline='', encoding='utf-8') as f:
-		reader = csv.reader(f)
-		iniList = list(reader)
-	for radok in iniList:
-		if len(radok) != 0:
-			recordList.append(radok)
-	return recordList
-
-
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer,'cp437','backslashreplace')
 
 parser = argparse.ArgumentParser()
 parser.add_argument("iniFilePath")
