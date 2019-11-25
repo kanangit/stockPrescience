@@ -93,7 +93,7 @@ plotModels(mod10all)
 plotModels(mod5all)
 plotModels(mod20all)
 
-# VK: analyse within topics:
+#  analyse within topics:
 topicQuality(mod10all$runout[[1]],docs)
 
 #get topic thoughts - the most representative text on that topic
