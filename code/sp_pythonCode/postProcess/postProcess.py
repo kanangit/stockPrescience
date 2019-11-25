@@ -109,10 +109,11 @@ snp500_2018_df.reset_index(drop = True)
 
 l_dates = list(snp500_2018_df['Epoch'])
 l_snp = list(snp500_2018_df['Close'])
-
+#normalize against maximum:
+l_snpNorm = [float(price) / max(l_snp) for price in l_snp]
 allDatesSnp = [matplotlib.dates.epoch2num(time) for time in l_dates ]
 
-matplotlib.pyplot.plot_date(allDatesSnp, l_snp, '-')
+matplotlib.pyplot.plot_date(allDatesSnp, l_snpNorm, '-')
 matplotlib.pyplot.show()
 
 for huj in l_dates:
