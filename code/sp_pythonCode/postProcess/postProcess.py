@@ -85,8 +85,9 @@ check_list = get_dateMean(d_list,result_df,'date','V5')
 #preparing to plot:
 allDates = [matplotlib.dates.epoch2num(time[0]) for time in time_list ]
 ytemp = [row[1] for row in check_list]
-
-matplotlib.pyplot.plot_date(allDates, ytemp, '-')
+print(min(ytemp))
+ytempNorm = [(float(perc) - min(ytemp) ) / max(ytemp) for perc in ytemp]
+matplotlib.pyplot.plot_date(allDates, ytempNorm, '-')
 ##matplotlib.pyplot.show()
 
 snp500_df = pd.read_csv(snp500FilePath)
@@ -106,11 +107,12 @@ snp500_2018_df.reset_index(drop = True)
 snp500_2018_df = snp500_df[snp500_df['Epoch'] <= epochEnd]
 snp500_2018_df.reset_index(drop = True)
 
+#Preparing to plot
 
 l_dates = list(snp500_2018_df['Epoch'])
 l_snp = list(snp500_2018_df['Close'])
 #normalize against maximum:
-l_snpNorm = [float(price) / max(l_snp) for price in l_snp]
+l_snpNorm = [(float(price)-float(min(l_snp))) / float(max(l_snp) - min(l_snp)) for price in l_snp]
 allDatesSnp = [matplotlib.dates.epoch2num(time) for time in l_dates ]
 
 matplotlib.pyplot.plot_date(allDatesSnp, l_snpNorm, '-')
