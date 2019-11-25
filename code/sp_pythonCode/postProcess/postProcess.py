@@ -1,5 +1,6 @@
 # import modules
 
+import matplotlib.dates 
 import sys,io
 from os import listdir
 from os.path import isfile, join
@@ -13,8 +14,8 @@ import argparse
 import numpy as np
 import math
 import time
-import matplotlib
-#import matplotlib.pyplot as plt
+#import matplotlib
+import matplotlib.pyplot
 
 # function sort a 2D array by the column col
 def sort_by_column(inList,col,desc = False):
@@ -86,3 +87,4 @@ allDates = [matplotlib.dates.epoch2num(time[0]) for time in time_list ]
 ytemp = [row[1] for row in check_list]
 
 matplotlib.pyplot.plot_date(allDates, ytemp, '-')
+matplotlib.pyplot.show()
