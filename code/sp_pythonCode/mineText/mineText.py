@@ -8,8 +8,10 @@ from bs4 import BeautifulSoup
 searchword = 'financial'
 start_day = '20181102'
 end_day = '20190103'
-filename = r'D:\kananovich\personal\OneDrive\Documents\family\jobsAnton\dataIncubator\stage02\myproject\data\scrapped\final\dumpFinancialSoupNoCroco20181102-20181102.csv'
 
+#filename = r'D:\kananovich\personal\OneDrive\Documents\family\jobsAnton\dataIncubator\stage02\myproject\data\scrapped\final\dumpFinancialSoupNoCroco20181102-20181102.csv'
+
+filename = r'C:\Users\anton\Documents\work\workIA\coding\git\kanangit\07stockprescience\stockPrescience\data\scrapped\aux04\dumpFinancialSoupNoCroco20181102-20181102.csv'
 # The code below is code by nimolne
 # (https://github.com/nilmolne/Text-Mining-The-New-York-Times-Articles),
 #modified for my needs
@@ -240,7 +242,7 @@ class articleAPI(object):
 def get_nextday(today):
     todayStruct = time.strptime(today, '%Y%m%d')
     epochseconds = time.mktime(todayStruct)
-    deltaDay = 60*60*24
+    deltaDay = 60*60*25
     nextDayEpoch = epochseconds+deltaDay
     nexDayStruct = time.localtime(nextDayEpoch)
     nextDay= time.strftime('%Y%m%d', nexDayStruct)
