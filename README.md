@@ -20,7 +20,9 @@ Figures 1 and 2 present two of them, which have provided the best match based on
 
 ![Figure 1](https://github.com/kanangit/stockPrescience/blob/master/Figure1_foreign.png "Figure 1")
 
-In contrast, the coverage of domestic news tended to behave countercyclically. With the notable exception on Nov. 6, the date of the midterm elections, when the journalists focused on partisan politics (Figure 2), this increase in coverage appears to have been accompanied by S&P 500’s poorer stock-market performance. 
+In contrast, the coverage of domestic news tended to behave countercyclically. With the notable exception on Nov. 6, the date of the midterm elections, when the journalists focused on partisan politics ( see  [Figure 2](https://github.com/kanangit/stockPrescience/blob/master/Figure2_domestic.png) below), this increase in coverage appears to have been accompanied by S&P 500’s poorer stock-market performance. 
+
+![Figure 2](https://github.com/kanangit/stockPrescience/blob/master/Figure2_domestic.png "Figure 2")
 
 At STEP 2, to be implemented later, I will subject this observation to more rigorous statistical testing, as well as will expand the sample beyond the financial news section. I will examine, specifically, which of the political topics that have not yet made their way to the financial news – where they would reflect concurrent price swings – have the biggest power in predicting the swings that’s yet to come. 
 
